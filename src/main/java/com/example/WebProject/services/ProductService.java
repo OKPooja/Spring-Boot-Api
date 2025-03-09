@@ -20,14 +20,28 @@ public class ProductService {
 
     public Product getProductById(int prodId) {
         for (Product prod : productList) {
-            if(prod.getProdId() == prodId) {
-                return prod;
-            }
+            if(prod.getProdId() == prodId) return prod;
         }
         return null;
     }
 
     public void addProduct(Product prod) {
         productList.add(prod);
+    }
+
+    public void updateProd(Product prod) {
+        int index = 0;
+        for(int i = 0; i < productList.size(); i++) {
+            if(productList.get(i).getProdId() == prod.getProdId()) index = i;
+        }
+        productList.set(index, prod);
+    }
+
+    public void deleteProd(int prodId) {
+        int index = 0;
+        for(int i = 0; i < productList.size(); i++) {
+            if(productList.get(i).getProdId() == prodId) index = i;
+        }
+        productList.remove(index);
     }
 }
