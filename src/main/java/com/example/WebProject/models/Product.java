@@ -1,7 +1,12 @@
 package com.example.WebProject.models;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
+@Entity
 public class Product {
+
+    @Id
     private int prodId;
     private String prodName;
     private int prodPrice;
@@ -11,6 +16,10 @@ public class Product {
         this.prodId = prodId;
         this.prodName = prodName;
         this.prodPrice = prodPrice;
+    }
+
+    public Product() {
+
     }
 
     public void setProdId(int prodId) {
